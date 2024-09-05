@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- Movie Card -->
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <img src="{{ movie.img.url }}" class="card-img-top" alt="Image not available" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.name }}</h5>
+                    <p class="card-text">{{ movie.desc }}</p>
+                    <p class="card-text"><small class="text-muted">Released in {{ movie.year }}</small></p>
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-primary" href="{% url 'movieapp:update' movie.id %}">Update</a>
+                        <a class="btn btn-danger" href="{% url 'movieapp:delete' movie.id %}">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
